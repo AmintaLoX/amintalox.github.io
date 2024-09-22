@@ -34,3 +34,29 @@ body {
     color: #333333;
     line-height: 1.6;
 }
+
+/* QR KOD bölümü stil ayarları */
+.qr-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.qr-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.qr-link {
+    display: inline-block;
+    background-color: red; /* Dış renk kırmızı */
+    color: white; /* Yazı rengi beyaz */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Siyah gölge */
+    font-weight: bold;
+}
+
+.qr-link:hover {
+    background-color: darkred; /* Üzerine gelince daha koyu kırmızı */
+}
