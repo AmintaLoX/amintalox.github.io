@@ -11,50 +11,6 @@
         <div class="site-message">
             <p>Merhaba, bu benim sitem ve ben bu site üzerinden çalışıyorum.</p>
         </div>
-        <div class="qr-container">
-            <div class="qr-box">
-                <p class="qr-title">Tıklayın</p>
-                <div id="qr-result" class="qr-result"></div>
-            </div>
-            <a href="#qr-section" class="qr-link">QR KOD</a>
-        </div>
-        <div id="qr-section" class="qr-section">
-            <h2>QR Kodu Oluştur</h2>
-            <form id="qr-form">
-                <label for="qr-input">Link:</label>
-                <input type="text" id="qr-input" placeholder="Link girin" required>
-                <button type="submit">Link ile QR Kodu Oluştur</button>
-            </form>
-            <form id="img-qr-form">
-                <label for="img-input">Resim Yükle:</label>
-                <input type="file" id="img-input" accept="image/*" required>
-                <button type="submit">Resim ile QR Kodu Oluştur</button>
-            </form>
-            <div id="image-preview" class="image-preview"></div>
-        </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-qrcode/1.0/jquery.qrcode.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#qr-form').on('submit', function(event) {
-                event.preventDefault();
-                const link = $('#qr-input').val();
-                $('#qr-result').empty().qrcode(link);
-            });
-
-            $('#img-qr-form').on('submit', function(event) {
-                event.preventDefault();
-                const file = $('#img-input')[0].files[0];
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const imgUrl = e.target.result;
-                    $('#qr-result').empty().qrcode(imgUrl);
-                }
-                reader.readAsDataURL(file);
-            });
-        });
-    </script>
 </body>
 </html>
