@@ -79,3 +79,9 @@ body {
 .qr-result {
     margin-top: 20px;
 }
+
+.image-preview {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
