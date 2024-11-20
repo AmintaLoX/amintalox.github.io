@@ -11,8 +11,8 @@
             margin: 0;
             padding: 0;
             font-family: 'Horizon', sans-serif;
-            background: #2c3e50; /* Düzgün bir arka plan rengi */
-            color: white;
+            background-color: #ffffff; /* Arka planı beyaz yapıyoruz */
+            color: black; /* Yazıyı siyah yapıyoruz */
             text-align: center;
             display: flex;
             justify-content: center;
@@ -22,35 +22,10 @@
             overflow: hidden;
         }
 
-        /* Arka plan düzeni */
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Yumuşak geçiş renkleri */
-            background-size: 400% 400%;
-            animation: gradientBackground 15s ease infinite; /* Geçiş animasyonu */
-        }
-
-        /* Arka plan animasyonu */
-        @keyframes gradientBackground {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
         /* Bebi Memunlar Yazısı */
         h1 {
             font-size: 52px;
-            color: white;
+            color: black; /* Yazıyı siyah yapıyoruz */
             margin: 0;
             padding: 20px 0;
             text-transform: uppercase;
@@ -94,9 +69,6 @@
     </style>
 </head>
 <body>
-    <!-- Arka plan div -->
-    <div class="background"></div>
-
     <!-- Bebi Memunlar Başlığı -->
     <h1>Bebi Memunlar</h1>
 
