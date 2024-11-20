@@ -5,23 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BEBI MEMUNLAR</title>
     <style>
-        /* Arka Plan Animasyonu */
+        /* Arka Plan ve Animasyon */
         @keyframes gradientAnimation {
             0% {
-                background-color: #ff7e5f;
-                background-image: linear-gradient(45deg, #ff7e5f, #feb47b);
+                background-color: #5f6368;
+                background-image: linear-gradient(45deg, #5f6368, #6a737d);
             }
             50% {
-                background-color: #6a11cb;
-                background-image: linear-gradient(45deg, #6a11cb, #2575fc);
+                background-color: #2e3a47;
+                background-image: linear-gradient(45deg, #2e3a47, #4a5769);
             }
             100% {
-                background-color: #ff7e5f;
-                background-image: linear-gradient(45deg, #ff7e5f, #feb47b);
+                background-color: #5f6368;
+                background-image: linear-gradient(45deg, #5f6368, #6a737d);
             }
         }
 
-        /* Genel vücut stili */
         body {
             margin: 0;
             padding: 0;
@@ -31,58 +30,54 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: #ff7e5f;
-            background-image: linear-gradient(45deg, #ff7e5f, #feb47b);
-            animation: gradientAnimation 10s ease infinite;
+            background: #5f6368;
+            background-image: linear-gradient(45deg, #5f6368, #6a737d);
+            animation: gradientAnimation 15s ease infinite;
         }
 
-        /* "BEBI MEMUNLAR" başlık stil */
+        /* Başlık */
         h1 {
-            font-size: 80px;
-            color: white;
+            font-size: 70px;
+            color: #fff;
             font-weight: bold;
-            text-transform: uppercase;
             letter-spacing: 5px;
-            animation: textAnimation 3s ease-in-out infinite;
+            margin: 0;
+            animation: fadeIn 2s ease-out;
         }
 
         /* Başlık animasyonu */
-        @keyframes textAnimation {
+        @keyframes fadeIn {
             0% {
-                transform: scale(1);
                 opacity: 0;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 1;
+                transform: translateY(-50px);
             }
             100% {
-                transform: scale(1);
-                opacity: 0;
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* Buton stili */
+        /* Buton */
         button {
             margin-top: 30px;
-            font-size: 24px;
-            padding: 15px 40px;
+            font-size: 22px;
+            padding: 12px 30px;
             cursor: pointer;
             border: none;
-            border-radius: 25px;
-            background-color: #007BFF;
+            border-radius: 30px;
+            background-color: #4CAF50;
             color: white;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         button:hover {
-            background-color: #0056b3;
-            transform: scale(1.1);
+            background-color: #45a049;
+            transform: scale(1.05);
         }
 
         button:active {
-            background-color: #003366;
+            background-color: #388e3c;
             transform: scale(1);
         }
     </style>
