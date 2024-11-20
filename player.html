@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyuncular</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"> <!-- Poppins fontu devam ediyor -->
+    <style>
+        /* Genel vücut stili */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Arka plan düzeni */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #1E2A47, #233C65, #355C7D);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+        }
+
+        /* Arka plan animasyonu */
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Sayfa başlığı */
+        h1 {
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Oyuncu Kartı */
+        .player {
+            width: 80%;
+            max-width: 400px;
+            background-color: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Oyuncu Kartı Başlık */
+        .player h2 {
+            font-size: 30px;
+            color: #333;
+        }
+
+        /* Oyuncu Kartı Açıklama */
+        .player p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Buton */
+        .back-button {
+            margin-top: 30px;
+            padding: 10px 25px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Buton Hover */
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Buton Tıklama */
+        .back-button:active {
+            background-color: #004080;
+        }
+    </style>
+</head>
+<body>
+    <!-- Arka plan div -->
+    <div class="background"></div>
+
+    <!-- Sayfa Başlığı -->
+    <h1>Oyuncularımız</h1>
+
+    <!-- Oyuncular Kartları -->
+    <div class="player">
+        <h2>Ahmet Yılmaz</h2>
+        <p>Posizyon: Forvet</p>
+        <p>Yaş: 28</p>
+    </div>
+
+    <div class="player">
+        <h2>Mehmet Korkmaz</h2>
+        <p>Posizyon: Orta Saha</p>
+        <p>Yaş: 24</p>
+    </div>
+
+    <div class="player">
+        <h2>Ali Can</h2>
+        <p>Posizyon: Defans</p>
+        <p>Yaş: 26</p>
+    </div>
+
+    <!-- Geri Git Butonu -->
+    <button class="back-button" onclick="window.location.href='index.html'">Geri Git</button>
+</body>
+</html>
