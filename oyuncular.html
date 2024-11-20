@@ -34,26 +34,25 @@
         /* Oyuncu Kartları */
         .players-container {
             display: flex;
-            flex-wrap: wrap; /* Kartları sarar ve alt satıra geçmelerine izin verir */
-            justify-content: center;
+            flex-direction: column; /* Kartları dikey sıralar */
+            align-items: center;
             width: 100%;
             padding: 20px;
         }
 
         .player {
-            width: 200px;
+            width: 300px; /* Kart genişliği */
+            height: 80px; /* Kart yüksekliği */
             background-color: #fff;
-            margin: 10px;
+            margin: 15px;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
-        }
-
-        /* Oyuncu Adı */
-        .player h2 {
-            font-size: 25px;
-            color: #333;
+            font-size: 22px; /* Yazı büyüklüğü */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* Geri Butonu */
