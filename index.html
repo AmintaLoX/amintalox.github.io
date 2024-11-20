@@ -3,33 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEBI MEMUNLAR</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"> <!-- Poppins fontunu ekledim -->
+    <title>Bebi Memunlar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Horizon&display=swap" rel="stylesheet"> <!-- Horizon fontu -->
     <style>
         /* Genel vücut stili */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
+            font-family: 'Horizon', sans-serif;
+            background: #2c3e50; /* Düzgün bir arka plan rengi */
+            color: white;
+            text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            background-color: #333;
+            flex-direction: column;
+            min-height: 100vh;
             overflow: hidden;
         }
 
-        /* Arka plan için linear gradient ve animation */
+        /* Arka plan düzeni */
         .background {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, #1E2A47, #233C65, #355C7D);
+            background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Yumuşak geçiş renkleri */
             background-size: 400% 400%;
-            animation: gradientBackground 15s ease infinite;
+            animation: gradientBackground 15s ease infinite; /* Geçiş animasyonu */
         }
 
         /* Arka plan animasyonu */
@@ -45,56 +47,49 @@
             }
         }
 
-        /* Başlık Animasyonu */
+        /* Bebi Memunlar Yazısı */
         h1 {
-            font-family: 'Poppins', sans-serif; /* Poppins fontu eklendi */
-            font-size: 80px;
+            font-size: 52px;
             color: white;
-            font-weight: bold;
-            letter-spacing: 5px;
-            text-transform: uppercase;
             margin: 0;
-            animation: fadeInUp 2s ease-out forwards;
+            padding: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out; /* Yazı efektini ekledim */
         }
 
-        /* Başlık animasyonu: yukarıdan inme */
-        @keyframes fadeInUp {
+        /* Yazı animasyonu: Fade-in */
+        @keyframes fadeIn {
             0% {
                 opacity: 0;
-                transform: translateY(-30px);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
-        /* Buton */
-        button {
-            position: relative;
-            margin-top: 30px;  /* Butonun görünüp görünmediğini engellemeyecek şekilde boşluk bırakıldı */
-            font-size: 24px;
-            padding: 12px 30px;
-            cursor: pointer;
-            border: none;
-            border-radius: 30px;
+        /* Buton Stili */
+        .button {
             background-color: #007BFF;
             color: white;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            z-index: 1; /* Butonun üstte olmasını sağladı */
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        /* Buton hover: Buton üzerine gelince büyür */
-        button:hover {
+        /* Buton Hover */
+        .button:hover {
             background-color: #0056b3;
-            transform: scale(1.05);
         }
 
-        /* Buton tıklama: Butona basıldığında animasyon */
-        button:active {
+        /* Buton Tıklama */
+        .button:active {
             background-color: #004080;
-            transform: scale(1);
         }
     </style>
 </head>
@@ -102,10 +97,12 @@
     <!-- Arka plan div -->
     <div class="background"></div>
 
-    <div>
-        <h1>BEBI MEMUNLAR</h1>
-        <!-- Butonun kesin görünmesini sağlamak için z-index ve pozisyon düzenlendi -->
-        <button onclick="window.location.href='oyuncular.html'">Takımın Oyuncularını Gör</button>
-    </div>
+    <!-- Bebi Memunlar Başlığı -->
+    <h1>Bebi Memunlar</h1>
+
+    <!-- Takımın Oyuncularını Gör Butonu -->
+    <a href="oyuncular.html">
+        <button class="button">Takımın Oyuncularını Gör</button>
+    </a>
 </body>
 </html>
