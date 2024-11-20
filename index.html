@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEBI MEMUNLAR</title>
+    <style>
+        /* Arka Plan Animasyonu */
+        @keyframes gradientAnimation {
+            0% {
+                background-color: #ff7e5f;
+                background-image: linear-gradient(45deg, #ff7e5f, #feb47b);
+            }
+            50% {
+                background-color: #6a11cb;
+                background-image: linear-gradient(45deg, #6a11cb, #2575fc);
+            }
+            100% {
+                background-color: #ff7e5f;
+                background-image: linear-gradient(45deg, #ff7e5f, #feb47b);
+            }
+        }
+
+        /* Genel vücut stili */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #ff7e5f;
+            background-image: linear-gradient(45deg, #ff7e5f, #feb47b);
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        /* "BEBI MEMUNLAR" başlık stil */
+        h1 {
+            font-size: 80px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: textAnimation 3s ease-in-out infinite;
+        }
+
+        /* Başlık animasyonu */
+        @keyframes textAnimation {
+            0% {
+                transform: scale(1);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Buton stili */
+        button {
+            margin-top: 30px;
+            font-size: 24px;
+            padding: 15px 40px;
+            cursor: pointer;
+            border: none;
+            border-radius: 25px;
+            background-color: #007BFF;
+            color: white;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        button:active {
+            background-color: #003366;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>BEBI MEMUNLAR</h1>
+        <button onclick="window.location.href='oyuncular.html'">Takımın Oyuncularını Gör</button>
+    </div>
+</body>
+</html>
