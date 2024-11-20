@@ -5,22 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BEBI MEMUNLAR</title>
     <style>
-        /* Arka Plan ve Animasyon */
-        @keyframes gradientAnimation {
-            0% {
-                background-color: #5f6368;
-                background-image: linear-gradient(45deg, #5f6368, #6a737d);
-            }
-            50% {
-                background-color: #2e3a47;
-                background-image: linear-gradient(45deg, #2e3a47, #4a5769);
-            }
-            100% {
-                background-color: #5f6368;
-                background-image: linear-gradient(45deg, #5f6368, #6a737d);
-            }
-        }
-
+        /* Genel vücut stili */
         body {
             margin: 0;
             padding: 0;
@@ -30,26 +15,51 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: #5f6368;
-            background-image: linear-gradient(45deg, #5f6368, #6a737d);
-            animation: gradientAnimation 15s ease infinite;
+            background-color: #333;
+            overflow: hidden;
         }
 
-        /* Başlık */
+        /* Arka plan için linear gradient ve animation */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #1E2A47, #233C65, #355C7D);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+        }
+
+        /* Arka plan animasyonu */
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Başlık Animasyonu */
         h1 {
-            font-size: 70px;
-            color: #fff;
+            font-size: 80px;
+            color: white;
             font-weight: bold;
             letter-spacing: 5px;
+            text-transform: uppercase;
             margin: 0;
-            animation: fadeIn 2s ease-out;
+            animation: fadeInUp 2s ease-out;
         }
 
-        /* Başlık animasyonu */
-        @keyframes fadeIn {
+        /* Başlık animasyonu: yukarıdan inme */
+        @keyframes fadeInUp {
             0% {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-30px);
             }
             100% {
                 opacity: 1;
@@ -60,29 +70,34 @@
         /* Buton */
         button {
             margin-top: 30px;
-            font-size: 22px;
+            font-size: 24px;
             padding: 12px 30px;
             cursor: pointer;
             border: none;
             border-radius: 30px;
-            background-color: #4CAF50;
+            background-color: #007BFF;
             color: white;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
+        /* Buton hover: Buton üzerine gelince büyür */
         button:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
             transform: scale(1.05);
         }
 
+        /* Buton tıklama: Butona basıldığında animasyon */
         button:active {
-            background-color: #388e3c;
+            background-color: #004080;
             transform: scale(1);
         }
     </style>
 </head>
 <body>
+    <!-- Arka plan div -->
+    <div class="background"></div>
+
     <div>
         <h1>BEBI MEMUNLAR</h1>
         <button onclick="window.location.href='oyuncular.html'">Takımın Oyuncularını Gör</button>
