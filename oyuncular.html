@@ -21,16 +21,6 @@
             min-height: 100vh;
         }
 
-        /* Arka Plan */
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #f0f0f0; /* Düzgün açık gri bir arka plan */
-        }
-
         /* Sayfa Başlığı */
         h1 {
             font-size: 60px;
@@ -49,13 +39,19 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            text-align: left;
+            display: inline-block;
+            white-space: nowrap; /* Yazının kaymasını engeller */
+            overflow: hidden; /* Taşan kısmı gizler */
         }
 
         /* Oyuncu Adı */
         .player h2 {
             font-size: 30px;
             color: #333;
+            white-space: nowrap; /* Yazının kaymasını engeller */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Uzun metni üç nokta ile kısaltır */
         }
 
         /* Geri Butonu */
@@ -83,23 +79,20 @@
     </style>
 </head>
 <body>
-    <!-- Arka plan div -->
-    <div class="background"></div>
-
     <!-- Sayfa Başlığı -->
     <h1>Oyuncularımız</h1>
 
     <!-- Oyuncular Kartları -->
     <div class="player">
-        <h2>Eray "AmintaLoX" Balcı</h2>
+        <h2>Eray Balcı</h2> <!-- Yazı kesilmeden düzgün yerleştirildi -->
     </div>
 
     <div class="player">
-        <h2>Cenker "Kuşabisi08" Akgüner</h2>
+        <h2>Cenker Akgüner</h2>
     </div>
 
     <div class="player">
-        <h2>Mustafa "Marshuka" Akgüner</h2>
+        <h2>Mustafa Akgüner</h2>
     </div>
 
     <div class="player">
