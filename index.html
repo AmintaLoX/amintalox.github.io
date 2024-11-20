@@ -69,7 +69,8 @@
 
         /* Buton */
         button {
-            margin-top: 40px;
+            position: relative;
+            margin-top: 30px;  /* Butonun görünüp görünmediğini engellemeyecek şekilde boşluk bırakıldı */
             font-size: 24px;
             padding: 12px 30px;
             cursor: pointer;
@@ -79,6 +80,7 @@
             color: white;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            z-index: 1; /* Butonun üstte olmasını sağladı */
         }
 
         /* Buton hover: Buton üzerine gelince büyür */
@@ -100,7 +102,7 @@
 
     <div>
         <h1>BEBI MEMUNLAR</h1>
-        <!-- Butonun yerleşimi ve görünürlüğü için düzgün şekilde ayarlandı -->
+        <!-- Butonun kesin görünmesini sağlamak için z-index ve pozisyon düzenlendi -->
         <button onclick="window.location.href='oyuncular.html'">Takımın Oyuncularını Gör</button>
     </div>
 </body>
