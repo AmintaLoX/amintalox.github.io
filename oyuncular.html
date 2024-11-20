@@ -41,8 +41,11 @@
         }
 
         .player {
-            width: 300px; /* Kart genişliği */
-            height: 80px; /* Kart yüksekliği */
+            display: flex; /* Yatay hizalama */
+            flex-direction: row; /* İçerik yatay sıralansın */
+            justify-content: center; /* Ortada hizalama */
+            width: 400px; /* Kart genişliği */
+            height: 100px; /* Kart yüksekliği */
             background-color: #fff;
             margin: 15px;
             padding: 20px;
@@ -53,6 +56,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .player h2 {
+            white-space: nowrap; /* Yazının satır atlamaması için */
         }
 
         /* Geri Butonu */
