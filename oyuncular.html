@@ -20,14 +20,15 @@
             flex-direction: column;
             min-height: 100vh;
             overflow-x: hidden; /* Yatay kaydırmayı engelle */
+            padding: 20px;
         }
 
         /* Sayfa Başlığı */
         h1 {
-            font-size: 60px;
+            font-size: 40px;
             color: black;
             font-weight: bold;
-            margin-top: 20px;
+            margin-bottom: 30px;
             text-transform: uppercase;
         }
 
@@ -37,28 +38,25 @@
             flex-direction: column; /* Kartları dikey sıralar */
             align-items: center;
             width: 100%;
-            padding: 20px;
+            padding: 0;
         }
 
         .player {
             display: flex; /* Yatay hizalama */
             flex-direction: row; /* İçerik yatay sıralansın */
             justify-content: center; /* Ortada hizalama */
-            width: 400px; /* Kart genişliği */
-            height: 100px; /* Kart yüksekliği */
+            width: 350px; /* Kart genişliğini küçülttük */
+            height: 80px; /* Kart yüksekliğini küçülttük */
             background-color: #fff;
             margin: 15px;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
-            font-size: 22px; /* Yazı büyüklüğü */
+            font-size: 18px; /* Yazı büyüklüğünü küçülttük */
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .player h2 {
             white-space: nowrap; /* Yazının satır atlamaması için */
         }
 
