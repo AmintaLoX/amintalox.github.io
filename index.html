@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nurettin Çarmıklı A.İ.L</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #216694;
+      color: #003333;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 80px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    #logo {
+      width: 200px;
+      margin: 0 auto 20px;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.85;
+    }
+    h1 {
+      margin: 0 0 40px;
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
+      line-height: 1.2;
+    }
+    .screen {
+      display: none;
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .active {
+      display: block;
+    }
+    .menu-button {
+      width: 200px;
+      padding: 15px;
+      margin: 20px auto;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #17a2b8;
+      color: white;
+      cursor: pointer;
+      display: block;
+      transition: background-color 0.3s ease;
+    }
+    .menu-button:hover {
+      background-color: #138496;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #000;
+      color: white;
+      margin: auto;
+    }
+    input, select, button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .option {
+      display: block;
+      margin: 10px 0;
+      background: #007bff;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .option:hover {
+      background: #0056b3;
+    }
+    #puanGosterge {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    #skorTablosu {
+      max-width: 600px;
+      margin: 20px auto;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      padding: 20px;
+      color: white;
+      box-shadow: 0 0 15px #000;
+    }
+    #skorTablosu h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    #skorListesi {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+    #skorListesi li {
+      padding: 8px 10px;
+      border-bottom: 1px solid #007bff;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <img id="logo" src="images.png" alt="Logo" />
+  <h1>Biyoloji Bilgi Yarışması</h1>
+
+  <div class="screen active" id="anaMenu">
+    <button class="menu-button" onclick="showScreen('oyunMenu')">Oyna</button>
+    <button class="menu-button" onclick="showScreen('skorlar')">Skor Tablosu</button>
+    <button class="menu-button" onclick="showScreen('credits')">Credits</button>
+  </div>
+
+  <div class="screen" id="oyunMenu">
+    <div class="container">
+      <h2>Zorluk Seçimi</h2>
+      <select id="zorluk">
+        <option value="kolay">Kolay (1 Puan)</option>
+        <option value="orta">Orta (2 Puan)</option>
+        <option value="zor">Zor (3 Puan)</option>
+      </select>
+      <h2>Konu Seçimi</h2>
+      <select id="konu">
+        <option value="hucre">Hücre</option>
+        <option value="solunum">Solunum</option>
+      </select>
+      <input type="text" id="ad" placeholder="Ad" required />
+      <input type="text" id="soyad" placeholder="Soyad" required />
+      <input type="text" id="sinif" placeholder="Sınıf (örn. 9A)" required />
+      <button onclick="basla()">Oyuna Başla</button>
+    </div>
+  </div>
+
+  <div class="screen" id="quiz">
+    <h2 id="soruMetni"></h2>
+    <div id="secenekler"></div>
+    <p id="puanGosterge"></p>
+    <button onclick="sonrakiSoru()">Sonraki Soru</button>
+  </div>
+
+  <div class="screen" id="skorlar">
+    <div id="skorTablosu">
+      <h2>Skor Tablosu</h2>
+      <ul id="skorListesi"></ul>
+      <button onclick="showScreen('anaMenu')">Geri Dön</button>
+    </div>
+  </div>
+
+  <div class="screen" id="credits">
+    <div class="container">
+      <h2>Credits</h2>
+      <p><strong>Kodlayan:</strong> Eray Balcı</p>
+      <p><strong>Fikir:</strong> Ensar Kemal Yılmaz</p>
+      <button onclick="showScreen('anaMenu')">Geri Dön</button>
+    </div>
+  </div>
+
+  <script>
+    const sorular = {
+      kolay: [
+        {
+          soru: "Hücrenin yönetim merkezi nedir?",
+          secenekler: ["Mitokondri", "Çekirdek", "Ribozom", "Lizozom"],
+          dogru: 1
+        }
+      ],
+      orta: [
+        {
+          soru: "Fotosentez hangi organelde gerçekleşir?",
+          secenekler: ["Kloroplast", "Golgi", "Endoplazmik Retikulum", "Lizozom"],
+          dogru: 0
+        }
+      ],
+      zor: [
+        {
+          soru: "Hangi canlıda hücre zarı bulunmaz?",
+          secenekler: ["Bakteri", "Mantar", "Bitki", "Hiçbiri"],
+          dogru: 3
+        }
+      ]
+    };
+
+    let puan = 0;
+    let aktifSoru = 0;
+    let secilenMod = "";
+    let aktifSoruListesi = [];
+    let cevapVerildi = false;
+
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      if (id === 'skorlar') {
+        skorListesiniGoster();
+      }
+    }
+
+    function normalizeName(name) {
+      return name.toLowerCase().replace(/\s+/g, '');
+    }
+
+    function basla() {
+      const ad = document.getElementById('ad').value.trim();
+      const soyad = document.getElementById('soyad').value.trim();
+      const sinif = document.getElementById('sinif').value.trim();
+      const zorluk = document.getElementById('zorluk').value;
+      const konu = document.getElementById('konu').value;
+
+      if (!ad || !soyad || !sinif) {
+        alert("Lütfen tüm bilgileri doldurun.");
+        return;
+      }
+
+      puan = 0;
+      aktifSoru = 0;
+      secilenMod = zorluk;
+      aktifSoruListesi = [...sorular[zorluk]];
+      showScreen('quiz');
+      gosterSoru();
+    }
+
+    function gosterSoru() {
+      cevapVerildi = false;
+
+      if (aktifSoru >= aktifSoruListesi.length) {
+        oyunBitti();
+        return;
+      }
+
+      const soru = aktifSoruListesi[aktifSoru];
+      document.getElementById('soruMetni').textContent = soru.soru;
+
+      const seceneklerDiv = document.getElementById('secenekler');
+      seceneklerDiv.innerHTML = '';
+
+      soru.secenekler.forEach((secenek, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'option';
+        btn.textContent = secenek;
+        btn.onclick = () => cevapKontrol(index);
+seceneklerDiv.appendChild(btn);
+});
+
+javascript
+Kopyala
+Düzenle
+  document.getElementById('puanGosterge').textContent = `Puanınız: ${puan}`;
+}
+
+function cevapKontrol(secim) {
+  if (cevapVerildi) return;
+  cevapVerildi = true;
+
+  const soru = aktifSoruListesi[aktifSoru];
+  const seceneklerDiv = document.getElementById('secenekler');
+  const butonlar = seceneklerDiv.querySelectorAll('button');
+
+  butonlar.forEach((btn, index) => {
+    btn.disabled = true;
+    if (index === soru.dogru) btn.style.backgroundColor = 'green';
+    else if (index === secim) btn.style.backgroundColor = 'red';
+  });
+
+  if (secim === soru.dogru) {
+    puan += (secilenMod === 'kolay' ? 1 : secilenMod === 'orta' ? 2 : 3);
+  }
+
+  document.getElementById('puanGosterge').textContent = `Puanınız: ${puan}`;
+}
+
+function sonrakiSoru() {
+  if (!cevapVerildi) {
+    alert("Lütfen bir seçenek seçin.");
+    return;
+  }
+  aktifSoru++;
+  gosterSoru();
+}
+// Oyun bitti kısmında skor kaydına sınıf bilgisini ekle
+function oyunBitti() {
+  alert(`Oyun bitti! Toplam puan: ${puan}`);
+
+  const ad = document.getElementById('ad').value.trim();
+  const soyad = document.getElementById('soyad').value.trim();
+  const sinif = document.getElementById('sinif').value.trim();
+  const tamAd = `${ad} ${soyad}`;
+  const key = normalizeName(tamAd);
+
+  let skorlar = JSON.parse(localStorage.getItem('biyolojiSkorlar')) || {};
+
+  if (!skorlar[key] || puan > skorlar[key].puan) {
+    skorlar[key] = { orijinalIsim: tamAd, puan, sinif }; // sınıfı ekle
+    localStorage.setItem('biyolojiSkorlar', JSON.stringify(skorlar));
+  }
+
+  showScreen('anaMenu');
+}
+
+// Skor tablosu gösterim kısmını güncelle
+function skorListesiniGoster() {
+  const skorListesiUl = document.getElementById('skorListesi');
+  skorListesiUl.innerHTML = '';
+  let skorlar = JSON.parse(localStorage.getItem('biyolojiSkorlar')) || {};
+
+  const siraliSkorlar = Object.values(skorlar).sort((a, b) => b.puan - a.puan);
+
+  siraliSkorlar.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = `${item.orijinalIsim} (${item.sinif}) - Puan: ${item.puan}`; // sınıf gösterimi eklendi
+    skorListesiUl.appendChild(li);
+  });
+}
+</script> </body> </html> ```
